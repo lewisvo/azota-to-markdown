@@ -66,7 +66,10 @@
     };
 
     let button = $("<button style='position: fixed; z-index: 10000; bottom: 48px; left: 16px;'>Generate Markdown</button>");
-    button.on("click", () => console.log( genMarkdown(genQuestions()) ) );
+    button.on("click", () => {
+        copyToClipboard( genMarkdown(genQuestions()) );
+        alert("Copied to clipboard");
+    });
 
     $("body").append(button);
 })(jQuery);
